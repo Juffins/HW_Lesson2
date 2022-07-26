@@ -18,11 +18,11 @@ public class PowerOfLine {
         }
         else if(power < 0){
             power *= -1;
-            String powerOfString = string.substring(0, power);
+            String powerOfString = string.substring(0, length / power);
 
             if(length % power == 0){
-                for(int i = 0; i < length; i += power){
-                    if(!powerOfString.equals(string.substring(i, i + power)) ){
+                for(int i = 0; i < length; i += length / power){
+                    if(!powerOfString.equals(string.substring(i, i + length / power)) ){
                         isWordSplit = false;
                     }
                 }
