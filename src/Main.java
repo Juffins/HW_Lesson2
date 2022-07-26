@@ -20,5 +20,8 @@ public class Main {
 
         // Распаковка строки
         // StringUnboxing.Unboxing();
+
+        // Подсчёт слов в строке
+        WordsRepetitions.CalculateWordsRepetitions();
     }
 }
