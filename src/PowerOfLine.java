@@ -11,9 +11,18 @@ public class PowerOfLine {
         int power = scanner.nextInt();
         int length = string.length();
 
+        if(Math.abs(power) >= 100001 || length > 1000){
+            System.out.println("Input data too large.");
+            return;
+        }
+
         String result = "";
+        int maxResultLength = 1023;
         boolean isWordSplit = true;
         if(power > 0){
+            if(length * power > maxResultLength){
+                power = maxResultLength / length + 1;
+            }
             result = string.repeat(power);
         }
         else if(power < 0){
@@ -39,6 +48,9 @@ public class PowerOfLine {
         }
         else{
             System.out.println("0");
+        }
+        if(result.length() > 1023){
+            result = result.substring(0, 1023);
         }
         System.out.println("Result: " + result + ".");
     }

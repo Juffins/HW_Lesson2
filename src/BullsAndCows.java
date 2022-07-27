@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class BullsAndCows {
 
-    private static Scanner scanner = new Scanner(System.in);
-
     public static void PlayBullsAndCows(){
 
         String intendedNumber = RandomNumber();
@@ -44,16 +42,26 @@ public class BullsAndCows {
                 }
             }
 
-            String result = countCows + " cows: ";
+            StringBuilder result = new StringBuilder(countCows + " cows");
+            if(countCows != 0){
+                result.append(": ");
+            }
             for(int i = 0; i < cows.size(); i++){
-                result += cows.get(i) + ", ";
+                result.append(cows.get(i));
+                if(i != cows.size() - 1){
+                    result.append(", ");
+                }
             }
-            result = result.substring(0, result.length() - 2);
-            result += " and " + countBulls + " bulls: ";
+            result.append(" and ").append(countBulls).append(" bulls");
+            if(countBulls != 0){
+                result.append(": ");
+            }
             for(int i = 0; i < bulls.size(); i++){
-                result += bulls.get(i) + ", ";
+                result.append(bulls.get(i));
+                if(i != bulls.size() - 1){
+                    result.append(", ");
+                }
             }
-            result = result.substring(0, result.length() - 2);
             System.out.println(result);
 
             if(countBulls == 4){
@@ -90,21 +98,23 @@ public class BullsAndCows {
 
     public static String InputNumber(){
 
+        Scanner scanner = new Scanner(System.in);
         int number;
+        int numberOfDigits = 4;
         String sNumber;
         if (scanner.hasNextInt()) {
             sNumber = scanner.next();
             try {
                 number = Integer.valueOf(sNumber);
-                if(sNumber.length() != 4 || number < 0){
+                if(sNumber.length() != numberOfDigits || number < 0){
                     System.out.println("Incorrect number! Please, enter a positive four-digit number.");
                     sNumber = InputNumber();
                 }
             }catch (Exception e) {
                 e.printStackTrace();
             }
-            for(int i = 0; i < 3; i++){
-                for(int j = i + 1; j < 4; j++){
+            for(int i = 0; i < numberOfDigits - 1; i++){
+                for(int j = i + 1; j < numberOfDigits; j++){
                     if(sNumber.charAt(i) == sNumber.charAt(j)){
                         System.out.println("Chars must not to be repeated!");
                         sNumber = InputNumber();

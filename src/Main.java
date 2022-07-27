@@ -16,10 +16,10 @@ public class Main {
         // ZerosAndOnes.CountMaxConsecutiveZeros();
 
         // Степень строки
-         PowerOfLine.CalculatePowerOfLine();
+        // PowerOfLine.CalculatePowerOfLine();
 
-        // Распаковка строки
-        // StringUnboxing.Unboxing();
+        // Рапаковка строки
+        // StringUnpacking.Unpacking();
 
         // Подсчёт слов в строке
         //WordsRepetitions.CalculateWordsRepetitions();

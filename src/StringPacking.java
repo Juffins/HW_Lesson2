@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class StringUnboxing {
+public class StringPacking {
 
     public static void Unboxing(){
 
